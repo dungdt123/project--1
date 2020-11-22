@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Product = ( {product : {id, name ,image, prince}}) => {
-    return (
+const Product = ({ product: { id, name, image, prince }, deleteProduct }) => {
+    return (<>
         <div>
             <div className="box">
                 <div className="image fit">
@@ -14,11 +14,12 @@ const Product = ( {product : {id, name ,image, prince}}) => {
                     </header>
                     <p> {prince}</p>
                     <footer className="align-center">
-                        <button className="button alt" onClick={(e) => deletePost(id)}>Delete</button>
+                        <button className="button alt" onClick={(e) => deleteProduct(id)}>Delete</button>
                     </footer>
                 </div>
             </div>
         </div>
+    </>
     )
 }
 
