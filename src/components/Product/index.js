@@ -1,17 +1,23 @@
 import React from 'react'
 
-const Product = ({products ,deleteProduct}) => {
+const Product = ( {product : {id, name ,image, prince}}) => {
     return (
         <div>
-            <section >
-                <div>
-                    <div>
-                        {products.map((product,index) =>(
-                                
-                        ))}
-                    </div>
+            <div className="box">
+                <div className="image fit">
+                    <img src={image} alt="" />
                 </div>
-            </section>
+                <div className="content">
+                    <header className="align-center">
+                        <p>maecenas sapien feugiat ex purus</p>
+                        <h2>{name}</h2>
+                    </header>
+                    <p> {prince}</p>
+                    <footer className="align-center">
+                        <button className="button alt" onClick={(e) => deletePost(id)}>Delete</button>
+                    </footer>
+                </div>
+            </div>
         </div>
     )
 }

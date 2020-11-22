@@ -7,16 +7,15 @@ import './App.css';
 import Headers from './components/Header';
 import Menu from './components/Menu';
 import Home from './components/Home';
-import Product from './components/Product';
+import Products from './components/Products';
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import swal from 'sweetalert';
+import React, { useState, useEffect } from 'react';
 // Khởi tạo state
 const [products, setProduct] = useState([]);
-
 const API = 'http://localhost:3001/products';
-
 useEffect(() => {
   fetch(API)
     .then(response => response.json())
@@ -34,7 +33,7 @@ const onDeleteProduct = (id) => {
       swal("!", "Failed", "error")
     });
   const newProduct = products.filter(post => post.id !== id); // sinh mảng mới không bao gồm ID vừa click
-  setPosts(newProduct)
+  setProduct(newProduct)
 }
 
 
@@ -49,7 +48,7 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/product">
-            <Product products ={products} deleteProduct ={deleteProduct}/>
+            <Products products={products} deleteProduct={onDeleteProduct} />
           </Route>
           <Route exact path="/contact">
             <Contact />
