@@ -1,9 +1,17 @@
 import React from 'react'
 
-const Product = () => {
+const Product = ({products ,deleteProduct}) => {
     return (
         <div>
-            
+            <section >
+                <div>
+                    <div>
+                        {products.map((product,index) =>(
+                                
+                        ))}
+                    </div>
+                </div>
+            </section>
         </div>
     )
 }
